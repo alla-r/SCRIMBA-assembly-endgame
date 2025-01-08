@@ -15,7 +15,6 @@ function Languages({ wrongGuessCount }: LanguagesProps) {
     const isLost = index < wrongGuessCount;
 
     const classNames = clsx("chip", isLost && "lost");
-    console.log(classNames);
 
     return (
       <span className={classNames} style={styles} key={lang.name}>

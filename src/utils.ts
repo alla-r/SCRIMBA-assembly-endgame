@@ -1,3 +1,5 @@
+import words from "./words";
+
 const getFarewellText = (language: string) => {
   const options = [
     `Farewell, ${language}`,
@@ -18,4 +20,9 @@ const getFarewellText = (language: string) => {
   return options[randomIndex];
 };
 
-export { getFarewellText };
+const getRandomWord = () => {
+  const randomIndex = Math.floor(Math.random() * words.length);
+  return words[randomIndex];
+};
+
+export { getFarewellText, getRandomWord };

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import GameStatus from "./components/GameStatus";
 import Header from "./components/Header";
 import Languages from "./components/Languages";
@@ -6,10 +6,16 @@ import Word from "./components/Word";
 import Keyboard from "./components/Keyboard";
 import NewGameButton from "./components/NewGameButton";
 import languages from "./languages";
+import { getRandomWord } from "./utils";
 
 function App() {
-  const [currentWord, setCurrentWord] = useState<string>("react");
+  const [currentWord, setCurrentWord] = useState<string>("");
   const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
+
+  useEffect(() => {
+    const word = getRandomWord();
+    setCurrentWord(word);
+  }, []);
 
   const wrongGuessCount = guessedLetters.filter(
     (letter) => !currentWord.includes(letter)
@@ -33,6 +39,11 @@ function App() {
 
       return newLetters;
     });
+  };
+
+  const startNewGameHandler = () => {
+    setCurrentWord(getRandomWord());
+    setGuessedLetters([]);
   };
 
   return (
@@ -72,7 +83,7 @@ function App() {
         onLetterClickCallback={addGuessedLetter}
         isGameOver={isGameOver}
       />
-      {isGameOver && <NewGameButton />}
+      {isGameOver && <NewGameButton onCLickCallback={startNewGameHandler} />}
     </main>
   );
 }

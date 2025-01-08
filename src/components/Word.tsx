@@ -1,15 +1,23 @@
+import clsx from "clsx";
+
 type WordProps = {
   word: string;
   guessedLetters: string[];
+  isGameLost: boolean;
 };
 
-function Word({ word, guessedLetters }: WordProps) {
+function Word({ word, guessedLetters, isGameLost }: WordProps) {
   const items = word.split("").map((letter, index) => {
-    const letterToDisplay = guessedLetters.includes(letter)
-      ? letter.toUpperCase()
-      : "";
+    const shouldRevealLetter = isGameLost || guessedLetters.includes(letter);
+    const classNames = clsx(
+      isGameLost && !guessedLetters.includes(letter) && "missed-letter"
+    );
 
-    return <span key={index}>{letterToDisplay}</span>;
+    return (
+      <span key={index} className={classNames}>
+        {shouldRevealLetter ? letter.toUpperCase() : ""}
+      </span>
+    );
   });
 
   return <section className="word">{items}</section>;
