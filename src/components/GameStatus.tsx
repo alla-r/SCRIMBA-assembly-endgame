@@ -21,7 +21,7 @@ function GameStatus({
   });
 
   return (
-    <section className={gameStatusClass}>
+    <section role="status" aria-live="polite" className={gameStatusClass}>
       {isGameWon && (
         <>
           <h2>You win!</h2>

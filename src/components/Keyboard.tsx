@@ -27,6 +27,8 @@ function Keyboard({
         className={classNames}
         key={letter}
         disabled={isGameOver}
+        aria-disabled={isGuessed}
+        aria-label={`Letter ${letter}`}
         onClick={() => onLetterClickCallback(letter)}
       >
         {letter.toUpperCase()}
