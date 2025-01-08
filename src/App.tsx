@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Confetti from "react-confetti";
 import GameStatus from "./components/GameStatus";
 import Header from "./components/Header";
 import Languages from "./components/Languages";
@@ -48,6 +49,7 @@ function App() {
 
   return (
     <main>
+      {isGameWon && <Confetti recycle={false} numberOfPieces={1500} />}
       <Header />
       <GameStatus
         isGameLost={isGameLost}
@@ -58,7 +60,11 @@ function App() {
         }
       />
       <Languages wrongGuessCount={wrongGuessCount} />
-      <Word word={currentWord} guessedLetters={guessedLetters} />
+      <Word
+        word={currentWord}
+        guessedLetters={guessedLetters}
+        isGameLost={isGameLost}
+      />
       {/* Combined visually-hidden aria-live region for status updates */}
       <section className="sr-only" aria-live="polite" role="status">
         <p>
