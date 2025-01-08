@@ -1,14 +1,24 @@
+import clsx from "clsx";
 import languages from "../languages";
 
-function Languages() {
-  const items = languages.map((lang) => {
+interface LanguagesProps {
+  wrongGuessCount: number;
+}
+
+function Languages({ wrongGuessCount }: LanguagesProps) {
+  const items = languages.map((lang, index) => {
     const styles = {
       backgroundColor: lang.backgroundColor,
       color: lang.color,
     };
 
+    const isLost = index < wrongGuessCount;
+
+    const classNames = clsx("chip", isLost && "lost");
+    console.log(classNames);
+
     return (
-      <span className="chip" style={styles} key={lang.name}>
+      <span className={classNames} style={styles} key={lang.name}>
         {lang.name}
       </span>
     );

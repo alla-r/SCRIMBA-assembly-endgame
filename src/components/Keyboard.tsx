@@ -4,12 +4,14 @@ interface KeyboardProps {
   currentWord: string;
   guessedLetters: string[];
   onLetterClickCallback: (letter: string) => void;
+  isGameOver: boolean;
 }
 
 function Keyboard({
   currentWord,
   guessedLetters,
   onLetterClickCallback,
+  isGameOver,
 }: KeyboardProps) {
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
@@ -24,6 +26,7 @@ function Keyboard({
       <button
         className={classNames}
         key={letter}
+        disabled={isGameOver}
         onClick={() => onLetterClickCallback(letter)}
       >
         {letter.toUpperCase()}
