@@ -36,7 +36,7 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - [React](https://reactjs.org/) - JS library
 - [Typescript](https://www.typescriptlang.org/) - programming language
 - [Vite](https://vitejs.dev/) - Build tool
-- [ESlint] (https://eslint.org/) - static code analysis tool for identifying problematic patterns found in JS code
+- [ESlint](https://eslint.org/) - static code analysis tool for identifying problematic patterns found in JS code
 
 ## Demo
 
