@@ -1,9 +1,35 @@
-function Keyboard() {
+import clsx from "clsx";
+
+interface KeyboardProps {
+  currentWord: string;
+  guessedLetters: string[];
+  onLetterClickCallback: (letter: string) => void;
+}
+
+function Keyboard({
+  currentWord,
+  guessedLetters,
+  onLetterClickCallback,
+}: KeyboardProps) {
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
-  const items = alphabet
-    .split("")
-    .map((letter) => <button key={letter}>{letter.toUpperCase()}</button>);
+  const items = alphabet.split("").map((letter) => {
+    const isGuessed = guessedLetters.includes(letter);
+    const isCorrect = isGuessed && currentWord.includes(letter);
+    const isWrong = isGuessed && !currentWord.includes(letter);
+
+    const classNames = clsx({ correct: isCorrect, wrong: isWrong });
+
+    return (
+      <button
+        className={classNames}
+        key={letter}
+        onClick={() => onLetterClickCallback(letter)}
+      >
+        {letter.toUpperCase()}
+      </button>
+    );
+  });
 
   return <section className="keyboard">{items}</section>;
 }

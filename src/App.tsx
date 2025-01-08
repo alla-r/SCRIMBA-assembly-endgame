@@ -8,14 +8,29 @@ import NewGameButton from "./components/NewGameButton";
 
 function App() {
   const [currentWord, setCurrentWord] = useState<string>("react");
+  const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
+
+  const addGuessedLetter = (letter: string) => {
+    setGuessedLetters((prevLetters) => {
+      const newLetters = prevLetters.includes(letter)
+        ? prevLetters
+        : [...prevLetters, letter];
+
+      return newLetters;
+    });
+  };
 
   return (
     <>
       <Header />
       <GameStatus />
       <Languages />
-      <Word word={currentWord} />
-      <Keyboard />
+      <Word word={currentWord} guessedLetters={guessedLetters} />
+      <Keyboard
+        currentWord={currentWord}
+        guessedLetters={guessedLetters}
+        onLetterClickCallback={addGuessedLetter}
+      />
       <NewGameButton />
     </>
   );
