@@ -43,9 +43,34 @@ function App() {
   };
 
   const startNewGameHandler = () => {
-    setCurrentWord(getRandomWord());
+    const newWord = getRandomWord();
+    setCurrentWord(newWord);
     setGuessedLetters([]);
   };
+
+  const handleKeyDown = (event: KeyboardEvent): void => {
+    if (isGameOver) {
+      if (event.key === "Enter") {
+        startNewGameHandler();
+      }
+
+      return;
+    }
+
+    const letter = event.key.toLowerCase();
+
+    if (/[a-z]/.test(letter) && letter.length === 1) {
+      addGuessedLetter(letter);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  });
 
   return (
     <main>
