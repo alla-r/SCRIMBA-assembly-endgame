@@ -15,14 +15,14 @@ The project was developed in educational purpose while studying Learn React cour
 
 ### Details
 
-This is a variation of the Hangman game. The goal is to guess the word before the pool of available programming languages is reduced to just Assembly (8 attempts). Once only Assembly is left, the game is over.
+This is a variation of the Hangman game. The goal is to guess the word before the pool of available programming languages is reduced to just Assembly (8 attempts).
 
-Rules:
-• The player has 8 attempts. Each incorrect guess removes one programming language from the pool.
-• If all attempts are exhausted and only Assembly remains, the game ends in a loss.
-• The player can make guesses using either a custom on-screen keyboard or a regular keyboard.
+**Rules:**
+* The player has 8 attempts. Each incorrect guess removes one programming language from the pool.
+* If all attempts are exhausted and only Assembly remains, the game is lost.
+* The player can make guesses using either a custom on-screen keyboard or a regular keyboard.
 
-May the Luck Be With You!
+* * May the Luck Be With You! * *
 
 ### Screenshot
 
