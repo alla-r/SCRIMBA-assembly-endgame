@@ -15,19 +15,18 @@ The project was developed in educational purpose while studying Learn React cour
 
 ### Details
 
-\*\*Note: add description
+This is a variation of the Hangman game. The goal is to guess the word before the pool of available programming languages is reduced to just Assembly (8 attempts). Once only Assembly is left, the game is over.
+
+Rules:
+• The player has 8 attempts. Each incorrect guess removes one programming language from the pool.
+• If all attempts are exhausted and only Assembly remains, the game ends in a loss.
+• The player can make guesses using either a custom on-screen keyboard or a regular keyboard.
+
+May the Luck Be With You!
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it.
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![](./public/Assembly-Endgame.png)
 
 ## My process
 
@@ -37,8 +36,8 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - [Typescript](https://www.typescriptlang.org/) - programming language
 - [Vite](https://vitejs.dev/) - Build tool
 - [ESlint](https://eslint.org/) - static code analysis tool for identifying problematic patterns found in JS code
+- [Github Pages](https://pages.github.com/) - for deployment
 
 ## Demo
 
-Live Site URL:
-\*\*Note: add link
+Live Site URL: https://alla-r.github.io/SCRIMBA-assembly-endgame/
